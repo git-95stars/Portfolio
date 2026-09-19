@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +7,11 @@
     list-style: none;
 }
 
-.header{
+body {
+    overflow-x: hidden; /* Prevents horizontal scrollbar during 3D rotations */
+}
+
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -21,23 +25,25 @@
     z-index: 100;
 }
 
-.logo{
+.logo {
     font-size: 25px;
     color: white;
     font-weight: 600;
     transition: 0.3s ease;
 }
 
-.logo:hover{
+.logo:hover {
     color: #02F5A1;
     text-shadow: 0 0 25px #02F5A1,
                  0 0 50px #02F5A1;
     transform: scale(1.3);
 }
-span{
+
+span {
     color: #02F5A1;
 }
-.navbar a{
+
+.navbar a {
     font-size: 18px;
     color: white;
     font-weight: 500;
@@ -45,12 +51,14 @@ span{
     border-bottom: 3px solid transparent;
     transition: 0.3s ease;
 }
+
 .navbar a:hover,
-.navbar a.active{
+.navbar a.active {
     color: #02F5A1;
     border-bottom: 3px solid #02F5A1;
 }
-.contact{
+
+.contact {
     padding: 10px 20px;
     background-color: white;
     color: #07191E;
@@ -61,12 +69,15 @@ span{
     font-weight: 600;
     transition: 0.3s ease;
 }
-.contact:hover{
+
+.contact:hover {
     background-color: #02F5A1;
     box-shadow: 0 0 25px #02F5A1;
     color: white;
 }
-.home{
+
+/* ================= HOME SECTION ================= */
+.home {
     width: 100%;
     min-height: 100vh;
     background: rgb(241, 241, 241);
@@ -75,26 +86,32 @@ span{
     gap: 7em;
     padding: 30px 12% 0;
 }
-.home.content{
+
+.home.content {
     max-width: 800px;
 }
-.home.content h3{
+
+.home.content h3 {
     font-size: 42px;
 }
-.home.content h1{
+
+.home.content h1 {
     font-size: 62px;
     line-height: 1.2;
 }
-.home.content p{
+
+.home.content p {
     font-size: 18px;
     margin: 25px 0 30px;
 }
-.btn-box{
+
+.btn-box {
     width: 345px;
     display: flex;
     gap: 2em;
 }
-.btn-1{
+
+.btn-1 {
     padding: 15px 28px;
     background-color: #07191E;
     color: #02F5A1;
@@ -106,12 +123,14 @@ span{
     transition: 0.3s ease;
     cursor: pointer;
 }
-.btn-1:hover{
+
+.btn-1:hover {
     background-color: white;
     color: black;
     border: 2px solid black;
 }
-.btn-2{
+
+.btn-2 {
     padding: 15px 28px;
     background-color: #02F5A1;
     color: #07191E;
@@ -123,73 +142,214 @@ span{
     transition: 0.3s ease;
     cursor: pointer;
 }
-.btn-2:hover{
+
+.btn-2:hover {
     background-color: white;
     color: #07191E;
 }
-.img-box img{
+
+.img-box img {
     border-radius: 75%;
     width: 405px;
 }
-::-webkit-scrollbar{
-    width: 15px;
+
+/* ================= 3D CUBE VIEWPORT ================= */
+.cube-viewport {
+    width: 100%;
+    height: 100vh; /* Enforce strict height to contain the 3D rendering */
+    perspective: 1500px;
+    overflow: hidden;
+    position: relative;
+    background: #07191E;
 }
-::-webkit-scrollbar-thumb{
-    background-color: #02F5A1;
+
+.cube-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+    transform: translateZ(-50vw) rotateY(0deg);
 }
-::-webkit-scrollbar-track{
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 50px;
+
+.cube-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backface-visibility: hidden;
+    background: #07191E;
+    overflow-y: auto; /* Allows scrolling inside the face if content exceeds screen height */
 }
-.about{
+
+/* Position faces in 3D Space */
+.face-front {
+    transform: rotateY(0deg) translateZ(50vw);
+}
+
+.face-right {
+    transform: rotateY(90deg) translateZ(50vw);
+}
+
+/* Rotation Trigger Class */
+.cube-box.show-services {
+    transform: translateZ(-50vw) rotateY(-90deg);
+}
+
+/* ================= ABOUT SECTION (Inside Front Face) ================= */
+.about {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12% 8%;
+    min-height: 100vh; /* Ensures content centers properly on large screens */
+    padding: 120px 8%;
     gap: 10em;
     background: #07191E;
 }
-.about-img img{
+
+.about-img img {
     position: relative;
     width: 405px;
     box-shadow: 0 0 25px #02F5A1,
                 0 0 50px #02F5A1;
     border-radius: 50%;
 }
-.about-content h2{
+
+.about-content h2 {
     text-align: left;
     color: wheat;
     font-size: 42px;
 }
-.about-content h3{
+
+.about-content h3 {
     font-size: 62px;
     color: wheat;
 }
-.about-content p{
+
+.about-content p {
     color: white;
     font-size: 20px;
     margin: 2em 0 3em;
 }
 
-.contact-form h2{
+/* ================= SERVICES SECTION (Inside Right Face) ================= */
+.services {
+    min-height: 100vh;
+    padding: 120px 8% 60px;
+    background: #07191E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services .heading {
+    font-size: 42px;
+    color: white;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.services-box {
+    flex: 1 1 300px;
+    background: #041216;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.services-box:hover {
+    border-color: #02F5A1;
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(2, 245, 161, 0.3);
+}
+
+.services-icon {
+    font-size: 55px;
+    color: #02F5A1;
+    margin-bottom: 1.2rem;
+}
+
+.services-box h3 {
+    font-size: 24px;
+    color: #02F5A1;
+    margin-bottom: 1rem;
+}
+
+.services-box p {
+    color: white;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.btn-services {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: #02F5A1;
+    color: #07191E;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-services:hover {
+    background-color: white;
+    color: #07191E;
+    box-shadow: 0 0 15px #02F5A1;
+}
+
+.btn-services.disabled {
+    background-color: rgba(2, 245, 161, 0.7);
+    cursor: default;
+}
+
+.btn-services.disabled:hover {
+    box-shadow: none;
+    background-color: rgba(2, 245, 161, 0.7);
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-form h2 {
     text-align: center;
     margin-top: 3em;
     margin-bottom: 1em;
     font-size: 36px;
 }
-.contact-form form{
+
+.contact-form form {
     max-width: 50em;
     margin: 1rem auto;
     text-align: center;
     margin-bottom: 3em;
 }
-.contact-form form .input-box{
+
+.contact-form form .input-box {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .contact-form form .input-box input,
-.contact-form form textarea{
+.contact-form form textarea {
     width: 100%;
     padding: 1.5em;
     font-size: 18px;
@@ -199,19 +359,23 @@ span{
     margin: 1rem 0;
     resize: none;
 }
-.footer{
+
+/* ================= FOOTER ================= */
+.footer {
     position: relative;
     bottom: 0;
     width: 100%;
     padding: 40px 0;
     background-color: #07191E;
 }
-.footer .social{
+
+.footer .social {
     text-align: center;
     padding-bottom: 25px;
     color: white;
 }
-.footer .social a{
+
+.footer .social a {
     font-size: 24px;
     color: white;
     border: 2px solid #02F5A1;
@@ -225,12 +389,14 @@ span{
     box-shadow: inset 0 0 10px #02F5A1, 0 0 10px #02F5A1;
     transition: 0.3s ease;
 }
-.footer .social a:hover{
-    transform: scale(1.2)translate(-10px);
+
+.footer .social a:hover {
+    transform: scale(1.2) translate(-10px);
     color: #02F5A1;
     border: 2px solid #02F5A1;
 }
-.footer ul{
+
+.footer ul {
     margin-top: 0;
     padding: 0;
     font-size: 18px;
@@ -238,21 +404,38 @@ span{
     margin-bottom: 0;
     text-align: center;
 }
-.footer ul li a{
+
+.footer ul li a {
     color: white;
     border-bottom: 3px solid transparent;
     transition: 0.3s ease;
 }
-.footer ul li a:hover{
+
+.footer ul li a:hover {
     border-bottom: 3px solid #02F5A1;
 }
-.footer ul li{
+
+.footer ul li {
     display: inline-block;
     padding: 0 15px;
 }
-.footer .copyright{
+
+.footer .copyright {
     margin-top: 15px;
     text-align: center;
     font-size: 12px;
     color: #02F5A1;
+}
+
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #02F5A1;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.6);
 }

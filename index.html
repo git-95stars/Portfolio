@@ -10,27 +10,23 @@
 <body>
     <header class="header">
         <a href="#" class="logo"><span>Clin</span>ton</a>
-
         <nav class="navbar">
-            <a href="#" class="active">Portfolio</a>
-            <a href="#">Services</a>
+            <a href="#" class="active" id="nav-portfolio">Portfolio</a>
+            <a href="#services" id="nav-services">Services</a>
             <a href="#">Experience</a>
             <a href="#">Projects</a>
             <a href="#">Education</a>
         </nav>
-
         <a href="#" class="contact">Contact Me</a>
     </header>
 
+    <!-- HOME SECTION: I Moved it completely outside the cube so it does not rotate -->
     <section class="home">
-        <div class="home=content">
+        <div class="home-content">
             <h3>Hi</h3>
-
             <h1>I'm <span>Clinton<br></span>a Full-Stack Developer and a Mobile App Developer</h1>
-
             <br>
             <p>In today's life, technology has proven to be essential in almost everypart of our daily lives. Am here to ensure that you get that dream site or application to enable ease in your work input or output and ensure your goals are met.</p>
-
             <br>
             <div class="btn-box">
                 <button class="btn-1">Hire Me</button>
@@ -38,84 +34,150 @@
             </div>
         </div>
         <div class="img-box">
-            <img src="Clint1.jpeg" alt="">
+            <img src="Clint1.jpeg" alt="Clinton">
         </div>
     </section>
 
-    <section class="about">
+    <!-- 3D CUBE VIEWPORT: Only wraps About Me and Services -->
+    <div class="cube-viewport" id="cube-section">
+        <div class="cube-box" id="cube">
+            
+            <!-- FRONT FACE: About Me -->
+            <div class="cube-face face-front">
+                <section class="about">
+                    <div class="about-img">
+                        <img src="Clint1.jpeg" alt="Clinton">
+                    </div>
+                    <div class="about-content">
+                        <h2 class="heading">About <span>Me</span></h2>
+                        <h3>Full-Stack<span> Developer </span>& Mobile App<span> Developer</span></h3>
+                        <p>I am a versatile developer who builds complete, end-to-end applications. On the frontend, I create responsive, interactive web designs and clean user interfaces for Android applications. Under the hood, I power these experiences using Java (Servlets, JSP) and robust relational databases like MySQL. From designing the initial layout to deploying cloud-hosted databases on Aiven and Render, I enjoy handling the entire development lifecycle to deliver seamless, functional products.</p>
+                        <a href="#" class="btn-2">Experience</a>
+                    </div>
+                </section>
+            </div>
 
-        <div class="about-img">
-            <img src="Clint1.jpeg" alt="">
-        </div>
-        
-        
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>Full-Stack<span> Developer </span>& Mobile App<span> Developer</span></h3>
-            <p>I am a versatile developer who builds complete, end-to-end applications. On the frontend, I create responsive, interactive web designs and clean user interfaces for Android applications. Under the hood, I power these experiences using Java (Servlets, JSP) and robust relational databases like MySQL. From designing the initial layout to deploying cloud-hosted databases on Aiven and Render, I enjoy handling the entire development lifecycle to deliver seamless, functional products.</p>
-            <a href="#" class="btn-2">Experience</a>
-        </div>
-    </section>
+            <!-- RIGHT FACE: Services Section -->
+            <div class="cube-face face-right">
+                <section class="services" id="services">
+                    <h2 class="heading">My <span>Services</span></h2>
+                    <div class="services-container">
+                        <div class="services-box">
+                            <iconify-icon icon="lucide:code" class="services-icon"></iconify-icon>
+                            <h3>Web Development</h3>
+                            <p>Every website should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible and be able to deliver as required.</p>
+                            <a href="#" class="btn-services">Read More</a>
+                        </div>
+                        <div class="services-box">
+                            <iconify-icon icon="lucide:smartphone" class="services-icon"></iconify-icon>
+                            <h3>Mobile Application</h3>
+                            <p>Every Mobile Application should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible and be able to deliver as required.</p>
+                            <a href="#" class="btn-services">Read More</a>
+                        </div>
+                        <div class="services-box">
+                            <iconify-icon icon="lucide:camera" class="services-icon"></iconify-icon>
+                            <h3>Photography & Video Editing</h3>
+                            <p>Apart from Development and Deployment, quality videos and pictures is what I love making. This will be available later, thankyou for your patience.</p>
+                            <a href="#" class="btn-services disabled">Coming Soon</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
+        </div>
+    </div>
+
+    <!-- CONTACT & FOOTER: Outside the cube -->
     <section class="contact-form">
         <h2 class="contact-me">Contact <span>Me</span></h2>
-
         <form action="#">
-
             <div class="input-box">
                 <input type="text" placeholder="Full Name">
                 <input type="email" placeholder="Email">
             </div>
-
             <div class="input-box">
                 <input type="number" placeholder="Phone Number">
                 <input type="text" placeholder="Subject">
             </div>
-
             <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
             <input type="submit" value="Send Message" class="btn-1">
         </form>
     </section>
 
     <footer class="footer">
-
         <div class="social">
             <a href="https://github.com/git-95stars" target="_blank">
                 <iconify-icon icon="entypo-social:github"></iconify-icon>
             </a>
-            
             <a href="https://linkedin.com/in/www.linkedin.com/in/clinton-ashira-5582763a1">
                 <iconify-icon icon="entypo-social:linkedin-with-circle"></iconify-icon>
             </a>
-            
             <a href="#">
                 <iconify-icon icon="entypo-social:twitter"></iconify-icon>
             </a>
-            
             <a href="#">
                 <iconify-icon icon="entypo-social:instagram"></iconify-icon>
             </a>
         </div>
-
         <ul class="list">
-            <li>
-                <a href="#" class="">FAQ</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">About Me</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="#">Privacy Policy</a>
-            </li>
+            <li><a href="#" class="">FAQ</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
         </ul>
-
         <p class="copyright">© 2026 Clinton | All Rights Reserved</p>
     </footer>
+
+    <script>
+        const cube = document.getElementById('cube');
+        const cubeSection = document.getElementById('cube-section');
+        const navPortfolio = document.getElementById('nav-portfolio');
+        const navServices = document.getElementById('nav-services');
+
+        let timerStarted = false;
+        let timer;
+
+        // Intersection Observer: Only start the 15s timer when the user scrolls down to the cube
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !timerStarted) {
+                    timerStarted = true;
+                    timer = setTimeout(() => {
+                        rotateToServices();
+                    }, 15000);
+                }
+            });
+        }, { threshold: 0.5 }); 
+
+        observer.observe(cubeSection);
+
+        function rotateToServices() {
+            cube.classList.add('show-services');
+            navPortfolio.classList.remove('active');
+            navServices.classList.add('active');
+        }
+
+        function rotateToPortfolio() {
+            cube.classList.remove('show-services');
+            navServices.classList.remove('active');
+            navPortfolio.classList.add('active');
+        }
+
+        // Manual Nav Clicks
+        navServices.addEventListener('click', (e) => {
+            e.preventDefault();
+            clearTimeout(timer);
+            cubeSection.scrollIntoView({ behavior: 'smooth' }); // Scroll down if they are still at top
+            rotateToServices();
+        });
+
+        navPortfolio.addEventListener('click', (e) => {
+            e.preventDefault();
+            clearTimeout(timer);
+            cubeSection.scrollIntoView({ behavior: 'smooth' }); 
+            rotateToPortfolio();
+        });
+    </script>
 </body>
 </html>
