@@ -11,11 +11,11 @@
     <header class="header">
         <a href="#" class="logo"><span>Clin</span>ton</a>
         <nav class="navbar">
-            <a href="#" class="active" id="nav-portfolio">Portfolio</a>
+            <a href="#"  class="active">Portfolio</a>
+            <a href="#" id="nav-portfolio">About Me</a>
             <a href="#services" id="nav-services">Services</a>
             <a href="#">Experience</a>
             <a href="#">Projects</a>
-            <a href="#">Education</a>
         </nav>
         <a href="#" class="contact">Contact Me</a>
     </header>
@@ -148,7 +148,7 @@
                     }, 15000);
                 }
             });
-        }, { threshold: 0.5 }); 
+        }, { threshold: 0.5 });
 
         observer.observe(cubeSection);
 
@@ -175,7 +175,7 @@
         navPortfolio.addEventListener('click', (e) => {
             e.preventDefault();
             clearTimeout(timer);
-            cubeSection.scrollIntoView({ behavior: 'smooth' }); 
+            cubeSection.scrollIntoView({ behavior: 'smooth' });
             rotateToPortfolio();
         });
     </script>
